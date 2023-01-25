@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Compile resume
+      - name: Compile paper
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
@@ -28,7 +28,7 @@ jobs:
       - name: Move PDF
         run: |
           mkdir build
-          mv main.pdf 'build/Kevin Wu Resume.pdf'
+          mv main.pdf 'build/UpdatingMisinformation.pdf'
 
       - name: Push build
         uses: s0/git-publish-subdir-action@develop
