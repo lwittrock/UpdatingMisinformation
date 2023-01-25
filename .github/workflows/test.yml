@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Compile UpdatingMisinformation
+      - name: Compile paper
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
