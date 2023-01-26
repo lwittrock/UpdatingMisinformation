@@ -38,6 +38,7 @@ jobs:
           source_file: 'test2.md'
           destination_repo: 'lwittrock/lwittrock.github.io'
           destination_folder: 'files'
+          destination_branch: 'master'
           user_email: 'larwitt@gmx.de'
           user_name: 'lwittrock'
           commit_message: 'A custom message for the commit'
