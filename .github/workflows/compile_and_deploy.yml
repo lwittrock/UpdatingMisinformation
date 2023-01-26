@@ -25,10 +25,9 @@ jobs:
       #- name: View logs
       #  run: cat main.log
 
-      #- name: Move PDF
-      #  run: |
-      #    mkdir build
-      #    mv main.pdf 'build/UpdatingMisinformation.pdf'
+      - name: Move PDF
+        run: |
+           mv main.pdf 'main/UpdatingMisinformation.pdf'
           
       #- name: Pushes file to website repo
       #  uses: dmnemec/copy_file_to_another_repo_action@main
