@@ -38,8 +38,8 @@ jobs:
           source_file: 'test2.md'
           destination_repo: 'lwittrock/l.wittrock.github.io'
           destination_folder: 'files'
-          user_email: 'example@email.com'
-          user_name: 'larwitt'
+          user_email: 'larwitt@gmx.de'
+          user_name: 'lwittrock'
           commit_message: 'A custom message for the commit'
 
       #- name: Push build
