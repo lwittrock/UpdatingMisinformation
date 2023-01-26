@@ -36,7 +36,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source_file: 'test2.md'
-          destination_repo: 'lwittrock/l.wittrock.github.io'
+          destination_repo: 'lwittrock/lwittrock.github.io'
           destination_folder: 'files'
           user_email: 'larwitt@gmx.de'
           user_name: 'lwittrock'
