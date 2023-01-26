@@ -24,4 +24,5 @@ jobs:
           
       - name: Move PDF
         run: |
+          mkdir main
           mv main.pdf 'main/UpdatingMisinformation.pdf'
