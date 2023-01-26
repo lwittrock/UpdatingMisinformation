@@ -24,14 +24,4 @@ jobs:
           
       - name: Move PDF
         run: |
-          mkdir build
-          mv main.pdf 'build/UpdatingMisinformation.pdf'
-
-      - name: Push build
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: build
-          FOLDER: build
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MESSAGE: "Build: ({sha}) {msg}"
+          mv main.pdf 'main/UpdatingMisinformation.pdf'
