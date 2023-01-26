@@ -14,48 +14,24 @@ jobs:
     name: Build and commit the PDF
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v3
-        
-      - name: Compile LaTeX document
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Compile paper
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
           
-      - name: Upload PDF file
-        uses: actions/upload-artifact@v3
-        with:
-          name: PDF
-          path: main.pdf
+      - name: Move PDF
+        run: |
+          mkdir build
+          mv main.pdf 'build/UpdatingMisinformation.pdf'
 
-
-
-      #- name: View logs
-      #  run: cat main.log
-
-      #- name: Move PDF
-      #  run: |
-      #     mkdir build 
-      #     mv main.pdf 'build/UpdatingMisinformation.pdf'
-          
-      #- name: Pushes file to website repo
-      #  uses: dmnemec/copy_file_to_another_repo_action@main
-      #  env:
-      #    API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      #  with:
-      #    source_file: 'build:UpdatingMisinformation.pdf'
-      #    destination_repo: 'lwittrock/lwittrock.github.io'
-      #    destination_folder: 'files'
-      #    destination_branch: 'master'
-      #    user_email: 'larwitt@gmx.de'
-      #    user_name: 'lwittrock'
-      #    commit_message: 'A custom message for the commit'
-
-      #- name: Push build
-      #  uses: s0/git-publish-subdir-action@develop
-      #  env:
-      #    REPO: self
-      #    BRANCH: build
-      #    FOLDER: build
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #    MESSAGE: "Build: ({sha}) {msg}"
+      - name: Push build
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: build
+          FOLDER: build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: "Build: ({sha}) {msg}"
