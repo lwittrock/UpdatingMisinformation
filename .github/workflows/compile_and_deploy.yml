@@ -27,20 +27,21 @@ jobs:
 
       - name: Move PDF
         run: |
-           mv main.pdf 'main/UpdatingMisinformation.pdf'
+           mkdir build 
+           mv main.pdf 'build/UpdatingMisinformation.pdf'
           
-      #- name: Pushes file to website repo
-      #  uses: dmnemec/copy_file_to_another_repo_action@main
-      #  env:
-      #    API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      #  with:
-      #    source_file: 'UpdatingMisinformation.pdf'
-      #    destination_repo: 'lwittrock/lwittrock.github.io'
-      #    destination_folder: 'files'
-      #    destination_branch: 'master'
-      #    user_email: 'larwitt@gmx.de'
-      #    user_name: 'lwittrock'
-      #    commit_message: 'A custom message for the commit'
+      - name: Pushes file to website repo
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'UpdatingMisinformation/build/UpdatingMisinformation.pdf'
+          destination_repo: 'lwittrock/lwittrock.github.io'
+          destination_folder: 'files'
+          destination_branch: 'master'
+          user_email: 'larwitt@gmx.de'
+          user_name: 'lwittrock'
+          commit_message: 'A custom message for the commit'
 
       #- name: Push build
       #  uses: s0/git-publish-subdir-action@develop
